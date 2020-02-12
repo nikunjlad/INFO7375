@@ -50,7 +50,7 @@ HYPERPARAMETERS:
   PADDING: True
   STRIDES: True
   GPU: True
-  DEVICES: [0,1]
+  DEVICES: [2,3]
   PARALLEL: True
 DATALOADER:
   DATA_DIR: "/home/nikunjlad"

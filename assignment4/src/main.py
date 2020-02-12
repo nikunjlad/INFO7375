@@ -108,7 +108,7 @@ class Main(DataGen, ResNet):
             break
 
         # select ResNet Model to train on
-        net = self.ResNet152()
+        net = self.ResNet101()
 
         # if training on GPU enabled, put the network on GPU
         if self.train_on_gpu:
@@ -234,7 +234,7 @@ class Main(DataGen, ResNet):
         print(net)
 
         # save the model after training
-        torch.save(net.state_dict(), 'resnet152.pt')  # save the resnet model
+        torch.save(net.state_dict(), 'resnet101.pt')  # save the resnet model
         hist = np.array(history)  # convert history from list to numpy array
 
         # training and validation loss curves
@@ -248,7 +248,7 @@ class Main(DataGen, ResNet):
         plt.title("CIFAR-10 Loss Curves")
         plt.xlim(0, 50)
         fig = plt.gcf()
-        fig.savefig("train_valid_loss152.png")
+        fig.savefig("train_valid_loss101.png")
 
         # training and validation accuracy curves
         plt.figure(figsize=(12, 12))
@@ -261,10 +261,10 @@ class Main(DataGen, ResNet):
         plt.title("CIFAR-10 Accuracy Curves")
         plt.xlim(0, 50)
         fig = plt.gcf()
-        fig.savefig("train_valid_accuracy152.png")
+        fig.savefig("train_valid_accuracy101.png")
 
         # load model after training for testing
-        net.load_state_dict(torch.load('resnet152.pt'))
+        net.load_state_dict(torch.load('resnet101.pt'))
 
         test_loss = 0
         test_acc = 0
