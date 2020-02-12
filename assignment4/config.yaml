@@ -53,7 +53,7 @@ HYPERPARAMETERS:
   DEVICES: [0,1]
   PARALLEL: True
 DATALOADER:
-  DATA_DIR: "/Users/nikunjlad"
+  DATA_DIR: "/home/nikunjlad"
   VALIDATION_SPLIT: 0.1
   ONE_HOT_ENCODE: False
 

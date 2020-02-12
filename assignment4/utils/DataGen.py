@@ -44,8 +44,6 @@ class DataGen:
         print("Testing data: ", self.data["x_test"].shape)
         print("Testing labels: ", self.data["y_test"].shape)
 
-        return self.data
-
     def split_data(self):
         valid_size = self.config["DATALOADER"]["VALIDATION_SPLIT"]  # % of data to be used for validation
         num_train = len(self.data["x_train"])  # get number of training samples
@@ -66,7 +64,6 @@ class DataGen:
         self.data["x_test"] = list(self.data["x_test"].transpose(0, 3, 1, 2))
         self.data["y_test"] = list(self.data["y_test"])
 
-        return self.data
 
     def configure_dataloaders(self):
 
@@ -89,7 +86,6 @@ class DataGen:
         self.data["valid_dataloader"] = DataLoader(self.data["valid_dataset"], batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
         self.data["test_dataloader"] = DataLoader(self.data["test_dataset"], batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
 
-        return self.data
 
 
 
