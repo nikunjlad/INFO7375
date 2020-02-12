@@ -26,6 +26,8 @@ class Main(DataGen, ResNet):
                 print(exc)
 
         self.current_time = datetime.datetime.now().strftime("%Y-%m-%d  %H.%M")
+        if not os.path.exists("logs"):
+            os.mkdir("logs")
         os.chdir("logs")  # change to logs directory
         # getting the custom logger
         self.logger_name = "resnets_" + self.current_time + "_.log"
