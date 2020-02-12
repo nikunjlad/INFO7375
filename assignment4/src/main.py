@@ -264,7 +264,7 @@ class Main(DataGen, ResNet):
         fig.savefig("train_valid_accuracy.png")
 
         # load model after training for testing
-        net.load_state_dict(torch.load('resnet.pt'))
+        net.load_state_dict(torch.load('resnet50.pt'))
 
         test_loss = 0
         test_acc = 0
