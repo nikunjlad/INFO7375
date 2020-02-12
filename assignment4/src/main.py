@@ -18,7 +18,6 @@ warnings.filterwarnings('ignore')
 class Main(DataGen, ResNet):
 
     def __init__(self):
-        os.chdir("..")  # change to base path
         # loading the YAML configuration file
         with open("config.yaml", 'r') as stream:
             try:
