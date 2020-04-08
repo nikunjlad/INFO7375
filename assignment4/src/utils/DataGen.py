@@ -4,6 +4,7 @@ import torch, h5py
 from PIL import Image
 import numpy as np
 
+
 class Data(Dataset):
 
     def __init__(self, data, targets, transform=None):
@@ -23,6 +24,7 @@ class Data(Dataset):
 
     def __len__(self):
         return len(self.data)
+
 
 class DataGen:
 
@@ -64,9 +66,7 @@ class DataGen:
         self.data["x_test"] = list(self.data["x_test"].transpose(0, 3, 1, 2))
         self.data["y_test"] = list(self.data["y_test"])
 
-
     def configure_dataloaders(self):
-
         transform_train = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),
@@ -82,15 +82,9 @@ class DataGen:
         self.data["train_dataset"] = Data(self.data["x_train"], self.data["y_train"], transform=transform_train)
         self.data["valid_dataset"] = Data(self.data["x_valid"], self.data["y_valid"], transform=transform_test)
         self.data["test_dataset"] = Data(self.data["x_test"], self.data["y_test"], transform=transform_test)
-        self.data["train_dataloader"] = DataLoader(self.data["train_dataset"], batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
-        self.data["valid_dataloader"] = DataLoader(self.data["valid_dataset"], batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
-        self.data["test_dataloader"] = DataLoader(self.data["test_dataset"], batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
-
-
-
-
-
-
-
-
-
+        self.data["train_dataloader"] = DataLoader(self.data["train_dataset"],
+                                                   batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
+        self.data["valid_dataloader"] = DataLoader(self.data["valid_dataset"],
+                                                   batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
+        self.data["test_dataloader"] = DataLoader(self.data["test_dataset"],
+                                                  batch_size=self.config["HYPERPARAMETERS"]["BATCH_SIZE"])
