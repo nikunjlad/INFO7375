@@ -127,6 +127,7 @@ class Main(DataGen, ResNet):
         # training and validation loop
         epochs = self.config["HYPERPARAMETERS"]["EPOCHS"]
         history = list()
+
         for epoch in range(epochs):
             epoch_start = time.time()
             print("Epoch: {}/{}".format(epoch + 1, epochs))
@@ -231,6 +232,7 @@ class Main(DataGen, ResNet):
                     Accuracy: {:.4f}%, Time: {:.4f}s".format(epoch, avg_train_loss,
                                                              avg_train_acc * 100, avg_valid_loss,
                                                              avg_valid_acc * 100, epoch_end - epoch_start))
+
         print(net)
 
         # save the model after training

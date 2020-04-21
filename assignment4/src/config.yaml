@@ -54,6 +54,7 @@ HYPERPARAMETERS:
   PARALLEL: True
 DATALOADER:
   DATA_DIR: "/home/nikunjlad"
+  MODEL_PATH: "model.pt"
   VALIDATION_SPLIT: 0.1
   ONE_HOT_ENCODE: False
 
